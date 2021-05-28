@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>NexusOSS</Name>
+  <Repository>sonatype/nexus3</Repository>
+  <Registry>https://hub.docker.com/r/sonatype/nexus3</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/109392-support-nexusoss/</Support>
+  <Project>https://www.sonatype.com/products/repository-oss</Project>
+  <Overview>Nexus Repository OSS&#xD;
+&#xD;
+First run may take some time while DB is provisioned.&#xD;
+&#xD;
+Initial admin password is stored in nexus-data/admin.password&#xD;
+The default path for this is /mnt/user/appdata/nexus-data/admin.password&#xD;
+&#xD;
+To add a hosted Docker Registry, see Nexus Documentation or the README here&#xD;
+https://github.com/jslay88/unraid_apps/blob/master/templates/README/NexusOSS.md</Overview>
+  <Category>Cloud: Tools: Network:Proxy Network:Management Status:Stable</Category>
+  <WebUI>http://[IP]:[PORT:8081]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://github.com/jslay88/unraid_apps/raw/master/templates/icons/NexusOSS.png</Icon>
+  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1622180277</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Nexus Repository OSS&#xD;
+&#xD;
+First run may take some time while DB is provisioned.&#xD;
+&#xD;
+Initial admin password is stored in nexus-data/admin.password&#xD;
+The default path for this is /mnt/user/appdata/nexus-data/admin.password&#xD;
+&#xD;
+To add a hosted Docker Registry, see Nexus Documentation or the README here&#xD;
+https://github.com/jslay88/unraid_apps/blob/master/templates/README/NexusOSS.md</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8081</HostPort>
+        <ContainerPort>8081</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/nexus-data</HostDir>
+      <ContainerDir>/nexus-data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>5000</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="Nexus Data" Target="/nexus-data" Default="/mnt/user/appdata/nexus-data" Mode="rw" Description="Presistent Data for Nexus OSS" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nexus-data</Config>
+  <Config Name="Web GUI" Target="8081" Default="8081" Mode="tcp" Description="Web GUI Port" Type="Port" Display="always" Required="true" Mask="false">8081</Config>
+  <Config Name="Docker Registry" Target="5000" Default="" Mode="rw" Description="Port for Docker Registry (if any), usually 5000&#13;&#10;&#13;&#10;See README for setup." Type="Path" Display="always" Required="false" Mask="false"/>
+</Container>
