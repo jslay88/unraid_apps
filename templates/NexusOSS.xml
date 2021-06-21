@@ -22,7 +22,7 @@ https://github.com/jslay88/unraid_apps/blob/master/templates/README/NexusOSS.md<
   <WebUI>http://[IP]:[PORT:8081]/</WebUI>
   <TemplateURL/>
   <Icon>https://github.com/jslay88/unraid_apps/raw/master/templates/icons/NexusOSS.png</Icon>
-  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <ExtraParams>--restart=unless-stopped --ulimit nofile=65536:65536</ExtraParams>
   <PostArgs/>
   <CPUset/>
   <DateInstalled>1622180277</DateInstalled>
